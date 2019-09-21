@@ -1,0 +1,2 @@
+language: nodemon-armhf
+fprocess: npm start

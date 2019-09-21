@@ -1,0 +1,21 @@
+{
+  "name": "nodemon-armhf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "nodemon": "^1.19.2",
+    "knex": "^0.19.4",
+    "mysql": "^2.17.1",
+    "objection": "^1.6.11"
+  }
+}

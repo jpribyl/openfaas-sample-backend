@@ -1,0 +1,92 @@
+version: '3'
+services:
+  get-employees:
+    network_mode: host
+    container_name: get-employees
+    build: ./build/get-employees/
+    command: sh -c "cd /home/app; npm start"
+    environment:
+      - NODE_ENV=development
+      - PORT=7000
+      - http_port=7000
+      - MYSQL_DB=payoutsnetwork
+      - MYSQL_PW=ranger
+    ports:
+      - '7000:7000'
+    working_dir: /home/app
+    volumes:
+      - './functions/employees/get-employees:/home/app/function'
+      - './template/nodemon-armhf/db:/home/app/db'
+      - './template/nodemon-armhf/model:/home/app/model'
+  post-employees:
+    network_mode: host
+    container_name: post-employees
+    build: ./build/post-employees/
+    command: sh -c "cd /home/app; npm start"
+    environment:
+      - NODE_ENV=development
+      - PORT=7001
+      - http_port=7001
+      - MYSQL_DB=payoutsnetwork
+      - MYSQL_PW=ranger
+    ports:
+      - '7001:7001'
+    working_dir: /home/app
+    volumes:
+      - './functions/employees/post-employees:/home/app/function'
+      - './template/nodemon-armhf/db:/home/app/db'
+      - './template/nodemon-armhf/model:/home/app/model'
+  patch-employees:
+    network_mode: host
+    container_name: patch-employees
+    build: ./build/patch-employees/
+    command: sh -c "cd /home/app; npm start"
+    environment:
+      - NODE_ENV=development
+      - PORT=7002
+      - http_port=7002
+      - MYSQL_DB=payoutsnetwork
+      - MYSQL_PW=ranger
+    ports:
+      - '7002:7002'
+    working_dir: /home/app
+    volumes:
+      - './functions/employees/patch-employees:/home/app/function'
+      - './template/nodemon-armhf/db:/home/app/db'
+      - './template/nodemon-armhf/model:/home/app/model'
+  delete-employees:
+    network_mode: host
+    container_name: delete-employees
+    build: ./build/delete-employees/
+    command: sh -c "cd /home/app; npm start"
+    environment:
+      - NODE_ENV=development
+      - PORT=7003
+      - http_port=7003
+      - MYSQL_DB=payoutsnetwork
+      - MYSQL_PW=ranger
+    ports:
+      - '7003:7003'
+    working_dir: /home/app
+    volumes:
+      - './functions/employees/delete-employees:/home/app/function'
+      - './template/nodemon-armhf/db:/home/app/db'
+      - './template/nodemon-armhf/model:/home/app/model'
+  get-states:
+    network_mode: host
+    container_name: get-states
+    build: ./build/get-states/
+    command: sh -c "cd /home/app; npm start"
+    environment:
+      - NODE_ENV=development
+      - PORT=7004
+      - http_port=7004
+      - MYSQL_DB=payoutsnetwork
+      - MYSQL_PW=ranger
+    ports:
+      - '7004:7004'
+    working_dir: /home/app
+    volumes:
+      - './functions/states/get-states:/home/app/function'
+      - './template/nodemon-armhf/db:/home/app/db'
+      - './template/nodemon-armhf/model:/home/app/model'

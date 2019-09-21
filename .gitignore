@@ -1,0 +1,6 @@
+.env
+build
+node_modules
+template
+!template
+!template/**

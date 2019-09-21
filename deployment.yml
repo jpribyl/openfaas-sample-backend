@@ -1,0 +1,55 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://192.168.1.208:31112
+functions:
+  get-employees:
+    lang: nodemon-armhf
+    handler: ./functions/employees/get-employees
+    image: payoutsnetwork/get-employees:latest
+    secrets:
+      - mysql-host
+      - mysql-password
+      - mysql-user
+      - mysql-database
+      - mysql-port
+  post-employees:
+    lang: nodemon-armhf
+    handler: ./functions/employees/post-employees
+    image: payoutsnetwork/post-employees:latest
+    secrets:
+      - mysql-host
+      - mysql-password
+      - mysql-user
+      - mysql-database
+      - mysql-port
+  patch-employees:
+    lang: nodemon-armhf
+    handler: ./functions/employees/patch-employees
+    image: payoutsnetwork/patch-employees:latest
+    secrets:
+      - mysql-host
+      - mysql-password
+      - mysql-user
+      - mysql-database
+      - mysql-port
+  delete-employees:
+    lang: nodemon-armhf
+    handler: ./functions/employees/delete-employees
+    image: payoutsnetwork/delete-employees:latest
+    secrets:
+      - mysql-host
+      - mysql-password
+      - mysql-user
+      - mysql-database
+      - mysql-port
+  get-states:
+    lang: nodemon-armhf
+    handler: ./functions/states/get-states
+    image: payoutsnetwork/get-states:latest
+    secrets:
+      - mysql-host
+      - mysql-password
+      - mysql-user
+      - mysql-database
+      - mysql-port
