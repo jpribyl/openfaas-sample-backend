@@ -6,7 +6,7 @@ module.exports = async (event, context) => {
   const validationStatus = await Validate(Employee, event.body);
 
   if (validationStatus.status === "success") {
-    const r = await Employee.query().insert(body);
+    const r = await Employee.query().insert(event.body);
     const body = r;
     const status = 200;
 

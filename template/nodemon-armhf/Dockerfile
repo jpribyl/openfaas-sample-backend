@@ -61,6 +61,7 @@ ENV write_timeout="15s"
 ENV read_timeout="15s"
 
 HEALTHCHECK --interval=3s CMD [ -e /tmp/.lock ] || exit 1
+RUN npm install forever env-cmd
 
 CMD ["fwatchdog"]
 

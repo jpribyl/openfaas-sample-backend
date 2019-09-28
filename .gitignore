@@ -1,6 +1,9 @@
 .env
 build
 node_modules
+package.json
 template
 !template
 !template/**
+!template/nodemon-armhf/.env
+!template/nodemon-armhf/package.json

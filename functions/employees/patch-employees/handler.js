@@ -1,12 +1,12 @@
 "use strict";
 
 module.exports = async (event, context) => {
-  const body = event.body;
   const { Employee } = context.models;
+  const { id } = event.query;
   try {
     const r = await Employee.query()
       .patch({ status: "active" })
-      .where("id", body.id);
+      .where("id", id);
 
     const status = 200;
     const body = "User activated";

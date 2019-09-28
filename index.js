@@ -103,7 +103,7 @@ function downAll() {
 function buildAll() {
   return new Promise(function(resolve, reject) {
     compose
-      .buildAll({ cwd: path.join(__dirname), log: true })
+      .buildAll({ cwd: path.join(__dirname), log: false })
       .then(resolve)
       .catch(reject);
   });
@@ -119,8 +119,9 @@ function upAll() {
 }
 
 function handleProxy(functionName, index) {
-  const path = getDeployment().functions[functionName].handler.slice(1);
+  const path = "/functions/" + functionName;
   const port = dockerStartPort + index;
+  console.log(path, port);
   app.use(path, proxy(`${baseUrl}:${port}`));
 }
 

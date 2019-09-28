@@ -3,7 +3,7 @@
 module.exports = async (event, context) => {
   const knex = context.db.knex();
   const { page, perPage, sort, sortDirection } = {
-    ...event.body
+    ...event.query
   };
 
   let r;

@@ -94,6 +94,16 @@ var middleware = (req, res) => {
   handler(fnEvent, fnContext, cb);
 };
 
+var cors = (req, res) => {
+  let fnEvent = new FunctionEvent(req);
+  let fnContext = new FunctionContext();
+  res
+    .set(fnContext.headers())
+    .status(fnContext.status())
+    .send("");
+};
+
+app.options("/*", cors);
 app.post("/*", middleware);
 app.get("/*", middleware);
 app.patch("/*", middleware);

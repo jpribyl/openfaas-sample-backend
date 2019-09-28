@@ -5,5 +5,5 @@ module.exports = async (event, context) => {
   const r = await knex.select().from("states");
   const body = r;
 
-  context.status(200).succeed(result);
+  context.status(200).succeed(body);
 };
